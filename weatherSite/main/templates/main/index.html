@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}}
+
+{% block title %}
+WEATHER_INFO
+{% endblock %}
+
+{% block content %}
+
+<h1>Main Topik page </h1>
+<p>info stack</p>
+
+{% for el in weather %}
+
+    <div class="bg-light p-5 rounded">
+        <h3><u>City name: {{ el.cityName }}</u></h3>
+        <p><b>Temperature: {{ el.temperature }}</b></p>
+        <p><b>Feels like temperature: {{ el.feels_like_temperature }}</b></p>
+        <p><b>Sky: {{ el.sky }}</b></p>
+        <p><b>Time: {{ el.time }}</b></p>
+        <p><b></b></p>
+    </div>
+
+{% endfor %}
+
+{% endblock %}

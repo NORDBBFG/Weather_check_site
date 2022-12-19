@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}}
+
+{% block title %}
+Main
+{% endblock %}
+
+{% block content %}
+
+<h1>All weather search information</h1>
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">City</th>
+        <th scope="col">Temperature</th>
+        <th scope="col">Feels temperature</th>
+        <th scope="col">Sky</th>
+        <th scope="col">Time</th>
+    </tr>
+    </thead>
+
+<tbody>
+{% if weather %}
+{% for el in weather %}
+<tr>
+    <th scope="row">{{el.auto_increment_id}}</th>
+    <td >{{el.cityName}}</td>
+    <td >{{el.temperature}}</td>
+    <td >{{el.feels_like_temperature}}</td>
+    <td >{{el.sky}}</td>
+    <td >{{el.time}}</td>
+    <td>
+        <a type="button" class="btn btn-danger btn-sm" href="/weather/{{el.auto_increment_id}}/delete">Delete</a>
+    </td>
+</tr>
+{% endfor %}
+{% else %}
+<p>There are no weather in list...</p>
+{% endif %}
+</tbody>
+    </table>
+
+{% endblock %}
